@@ -1,8 +1,8 @@
-# <Coding Boot Camp Quiz>
+# <Daily Work Day Planner>
 
 ## Description
 
-This project is a timed quiz intended for coding boot camp students. After the quiz has been taken, the student can choose to upload their score.
+This project is a work day planner for employees working a 9am-5pm shift. It allows them to write their goals for specific times that persist upon a page revisit.
 
 ## Installation
 
@@ -10,17 +10,17 @@ N/A
 
 ## Usage
 
-Click the start button to begin the quiz. From there, click whichever answer you think is correct to progress to the next question. When all questions have been answered or time has run out, the quiz ends. You can then enter your initials and click the Submit button to upload your score to the website.
+The page's header contains the current date. The current hour is shown as red, future hours are shown as green and past hours are shown as gray.
 
-You can also select the View Scores button to see all uploaded scores. From there, you can select the Go Back button to return to the quiz page.
+Click the text area of an hour's widget to type in whatever you plan to do during that time. Click the button to the right of the text area to save your inputted content for when you re-open the page later.
 
-[Boot Camp Quiz](https://ethanfrog.github.io/bootcamp-quiz/)
+[Daily Planner](https://ethanfrog.github.io/daily-planner/)
 
-![Boot Camp Quiz Homepage](./assets/images/bc-quiz-homepage.png)
+![Daily Planner Homepage](./daily-planner.png)
 
 ## Credits
 
-CSS reset file provided by Michigan State University.
+N/A
 
 ## License
 
