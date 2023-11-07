@@ -10,11 +10,13 @@ $(function () {
   // useful when saving the description in local storage?
 
   $('.btn').on('click', function () {
+    // The time block of the pressed button
     var timeBlock = $(this).parent();
+    // The id of the time block
     var timeBlockID = timeBlock.attr('id');
-
+    // The input field of the time block
     var timeBlockTextbox = timeBlock.children('.description');
-
+    // Save the contents of the time block to local storage
     localStorage.setItem(timeBlockID, JSON.stringify(timeBlockTextbox.val()));
   });
 
@@ -56,6 +58,15 @@ $(function () {
   // TODO: Add code to get any user input that was saved in localStorage and set
   // the values of the corresponding textarea elements. HINT: How can the id
   // attribute of each time-block be used to do this?
+
+  for (i = 0; i < localStorage.length; i++) {
+    var timeBlockToFill = $('#' + localStorage.key(i));
+  
+    var textboxToFill = timeBlockToFill.children('.description');
+
+    var savedText = JSON.parse(localStorage.getItem(localStorage.key(i)));
+    textboxToFill.val(savedText);
+  }
 
   // TODO: Add code to display the current date in the header of the page.
 
