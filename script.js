@@ -59,11 +59,13 @@ $(function () {
   // the values of the corresponding textarea elements. HINT: How can the id
   // attribute of each time-block be used to do this?
 
+  // Iterate through local storage
   for (i = 0; i < localStorage.length; i++) {
+    // Get a time block based on the id key
     var timeBlockToFill = $('#' + localStorage.key(i));
-  
+    // Get the textbox of the time block
     var textboxToFill = timeBlockToFill.children('.description');
-
+    // Fill the textbox with the contents of local storage
     var savedText = JSON.parse(localStorage.getItem(localStorage.key(i)));
     textboxToFill.val(savedText);
   }
