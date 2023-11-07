@@ -14,43 +14,44 @@ $(function () {
   // attribute of each time-block be used to conditionally add or remove the
   // past, present, and future classes? How can Day.js be used to get the
   // current hour in 24-hour time?
+
+  // Get the current hour
   var currentHour = dayjs().hour();
-
-  var firstTimeBlock = $('#hour-1');
-
-  var timeBlockHour = Number(firstTimeBlock.attr('id').split('-')[1]);
-  if (timeBlockHour < 5) {
-    timeBlockHour += 12;
-  }
-
-  console.log('Current hour: ' + currentHour);
-  console.log('Time block hour: ' + timeBlockHour);
-
-  // Scrub classes
-  firstTimeBlock.removeClass('past');
-  firstTimeBlock.removeClass('present');
-  firstTimeBlock.removeClass('future');
-
-  if (currentHour > timeBlockHour) {
-    // Set to past
-    firstTimeBlock.addClass('past');
-  }
-  else if (currentHour < timeBlockHour) {
-    // Set to future
-    firstTimeBlock.addClass('future');
-  }
-  else {
-    // Set to present
-    firstTimeBlock.addClass('present');
-  }
+  
+  // Iterate through time blocks
+  $('.time-block').each(function(index) {
+    // Get the numerical hour value of the time block
+    var timeBlockHour = Number($(this).attr('id').split('-')[1]);
+    // Convert hour value to 24-hour format for comparison
+    if (timeBlockHour < 5) {
+      timeBlockHour += 12;
+    }
+  
+    // Remove all color classes from the time block
+    $(this).removeClass('past');
+    $(this).removeClass('present');
+    $(this).removeClass('future');
+  
+    // Add a color class to the time block based on the current hour
+    if (currentHour > timeBlockHour) {
+      $(this).addClass('past');
+    }
+    else if (currentHour < timeBlockHour) {
+      $(this).addClass('future');
+    }
+    else {
+      $(this).addClass('present');
+    }
+  })
 
   // TODO: Add code to get any user input that was saved in localStorage and set
   // the values of the corresponding textarea elements. HINT: How can the id
   // attribute of each time-block be used to do this?
 
   // TODO: Add code to display the current date in the header of the page.
+
   var currentDateEl = $('#currentDay');
   var currentDateObject = dayjs();
-
+  // Display the current date, formatted as month/day/year
   currentDateEl.text(currentDateObject.format('M/D/YYYY'));
 });
