@@ -12,7 +12,10 @@ $(function () {
   $('.btn').on('click', function () {
     var timeBlock = $(this).parent();
     var timeBlockID = timeBlock.attr('id');
-    alert(timeBlockID);
+
+    var timeBlockTextbox = timeBlock.children('.description');
+
+    localStorage.setItem(timeBlockID, JSON.stringify(timeBlockTextbox.val()));
   });
 
   // TODO: Add code to apply the past, present, or future class to each time
@@ -25,7 +28,7 @@ $(function () {
   var currentHour = dayjs().hour();
   
   // Iterate through time blocks
-  $('.time-block').each(function(index) {
+  $('.time-block').each(function (index) {
     // Get the numerical hour value of the time block
     var timeBlockHour = Number($(this).attr('id').split('-')[1]);
     // Convert hour value to 24-hour format for comparison
